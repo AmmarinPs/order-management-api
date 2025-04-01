@@ -13,25 +13,25 @@ export class OrdersController {
   constructor(private ordersService: OrdersService) {}
 
   @Post()
-  @ApiOperation({ summary: 'สร้างคำสั่งซื้อใหม่' })
-  @ApiResponse({ status: 201, description: 'คำสั่งซื้อถูกสร้างสำเร็จ', type: Order })
+  @ApiOperation({ summary: 'Create a new order' })
+  @ApiResponse({ status: 201, description: 'Order successfully created', type: Order })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async create(@Body() createOrderDto: CreateOrderDto) {
     return this.ordersService.createOrder(createOrderDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'ดึงข้อมูลคำสั่งซื้อทั้งหมด' })
-  @ApiResponse({ status: 200, description: 'ดึงข้อมูลสำเร็จ', type: [Order] })
+  @ApiOperation({ summary: 'Retrieve all orders' })
+  @ApiResponse({ status: 200, description: 'Successfully retrieved orders', type: [Order] })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async findAll() {
     return this.ordersService.findAll();
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'ดึงข้อมูลคำสั่งซื้อตาม ID' })
-  @ApiResponse({ status: 200, description: 'ดึงข้อมูลสำเร็จ', type: Order })
-  @ApiResponse({ status: 404, description: 'ไม่พบคำสั่งซื้อ' })
+  @ApiOperation({ summary: 'Retrieve an order by ID' })
+  @ApiResponse({ status: 200, description: 'Successfully retrieved order', type: Order })
+  @ApiResponse({ status: 404, description: 'Order not found' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async findOne(@Param('id') id: string) {
     return this.ordersService.findOne(+id);
