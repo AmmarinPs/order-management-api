@@ -9,7 +9,6 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Post('login')
-  @ApiOperation({ summary: 'เข้าสู่ระบบเพื่อรับ JWT token' })
   @ApiResponse({
     status: 201,
     description: 'เข้าสู่ระบบสำเร็จ ได้รับ JWT token',

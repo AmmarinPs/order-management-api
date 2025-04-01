@@ -3,14 +3,14 @@ import { IsNumber, IsString, Min } from 'class-validator';
 
 export class CreatePaymentDto {
   @ApiProperty({
-    description: 'ID ของคำสั่งซื้อที่ต้องการชำระ',
+    description: 'ID ของคำสั่งซื้อที่ต้องการชำระGGGG',
     example: 1,
   })
   @IsNumber()
   orderId: number;
 
   @ApiProperty({
-    description: 'จำนวนเงินที่ชำระ',
+    description: 'จำนวนเงินที่ชำระGGGG',
     example: 1000,
   })
   @IsNumber()
@@ -18,7 +18,7 @@ export class CreatePaymentDto {
   amount: number;
 
   @ApiProperty({
-    description: 'วิธีการชำระเงิน',
+    description: 'วิธีการชำระเงินGGGG',
     example: 'credit_card',
   })
   @IsString()

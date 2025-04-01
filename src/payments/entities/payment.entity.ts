@@ -5,15 +5,15 @@ import { Order } from '../../orders/entities/orders.entity';
 @Entity()
 export class Payment {
   @PrimaryGeneratedColumn()
-  @ApiProperty({ description: 'ID ของการชำระเงิน', example: 1 })
+  @ApiProperty({ description: 'ID ของการชำระเงินTEST', example: 1 })
   id: number;
 
   @Column()
-  @ApiProperty({ description: 'ID ของคำสั่งซื้อที่เกี่ยวข้อง', example: 1 })
+  @ApiProperty({ description: 'ID ของคำสั่งซื้อที่เกี่ยวข้องTEST', example: 1 })
   orderId: number;
 
   @Column()
-  @ApiProperty({ description: 'จำนวนเงินที่ชำระ', example: 1000 })
+  @ApiProperty({ description: 'จำนวนเงินที่ชำระTEST', example: 1000 })
   amount: number;
 
   @Column()
