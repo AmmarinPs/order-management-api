@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Order } from './orders.entity';
 import { OrderDetails } from './order-details.entity';
-import { CreateOrderDto } from './create-order.dto';
+import { CreateOrderDto } from '../Dto/create-order.dto';
 
 @Injectable()
 export class OrdersService {
@@ -17,13 +17,11 @@ export class OrdersService {
   async createOrder(createOrderDto: CreateOrderDto): Promise<Order> {
     const { userId, orderDetails } = createOrderDto;
 
-    // คำนวณ totalAmount จาก orderDetails
     const totalAmount = orderDetails.reduce(
       (sum, detail) => sum + detail.quantity * detail.price,
       0,
     );
 
-    // สร้าง Order
     const order = this.ordersRepository.create({
       userId,
       totalAmount,
