@@ -3,8 +3,9 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as dotenv from 'dotenv';
 import { ValidationPipe } from '@nestjs/common';
+import { ResponseInterceptor } from './common/response.interceptor';
 
-dotenv.config();
+dotenv.config({ path: '.env.dev' });
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { logger: false });
@@ -16,7 +17,7 @@ async function bootstrap() {
       transform: true, // แปลงข้อมูลให้ตรงกับ type ใน DTO
     }),
   );
-
+  app.useGlobalInterceptors(new ResponseInterceptor());
   const config = new DocumentBuilder()
     .setTitle('Order Management API')
     .setDescription('API for managing orders, payments, and webhooks')
