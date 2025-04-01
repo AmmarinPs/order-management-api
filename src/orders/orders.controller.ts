@@ -2,8 +2,8 @@ import { Controller, Get, Post, Body, Param, UseGuards } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { ApiTags, ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { CreateOrderDto } from '../Dto/create-order.dto';
-import { Order } from '../Entity/orders.entity';
+import { CreateOrderDto } from './dto/create-order.dto';
+import { Order } from './entities/orders.entity';
 
 @ApiTags('orders')
 @ApiBearerAuth()

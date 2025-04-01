@@ -4,8 +4,10 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { OrdersModule } from './orders/orders.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Order } from './Entity/orders.entity';
-import { OrderDetails } from './Entity/order-details.entity';
+import { Order } from './orders/entities/orders.entity';
+import { OrderDetails } from './orders/entities/order-details.entity';
+import { PaymentsModule } from './payments/payments.module';
+import { Payment } from './payments/entities/payment.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -15,11 +17,12 @@ import { OrderDetails } from './Entity/order-details.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Order, OrderDetails], 
+      entities: [Order, OrderDetails, Payment], 
       synchronize: true, 
     }),
     AuthModule,
     OrdersModule,
+    PaymentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
