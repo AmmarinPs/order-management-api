@@ -3,7 +3,7 @@ import { OrdersService } from './orders.service';
 import { ApiTags, ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CreateOrderDto } from '../Dto/create-order.dto';
-import { Order } from './orders.entity';
+import { Order } from '../Entity/orders.entity';
 
 @ApiTags('orders')
 @ApiBearerAuth()
